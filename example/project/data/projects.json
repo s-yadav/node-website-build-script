@@ -1,0 +1,34 @@
+{
+	"projects":[
+		{
+				"name":"contextmenu.js",
+				"description":"contextMenu.js is a plugin to create windows like context menu with keyboard ineteraction, different type of inputs ,trigger events and much more.It is small , easy, customizable and with some configuration it can be used in different ways.",
+				"link":"http://github.com/s-yadav/contextMenu.js"
+			},
+		{
+			"name":"jsonQ",
+			"description":"jsonQ is a light weight and feature-rich javascript library to make your world around JSON fast and easy. For a JSON, it makes traversing (you don’t need to make loop inside loop), extracting data, manipulating it very simple.  It also provide some utilty methods , we need while working with JSON which directly works with a JSON. Its available both as node module and browser library.",
+			"link":"http://github.com/s-yadav/jsonQ"
+			},
+		{
+			"name":"modalBox.js",
+			"description":"Modal window has become a very popular way of showing information in detail, and getting needed input while blocking the main application flow. There are large numbers of attractive plugin available over the internet with lot of options. But the question is do we need that all?. So here is a modelbox plugin packed with only most used features and is a very light weight plugin.",
+			"link":"http://github.com/s-yadav/modalBox.js"
+			},
+		{
+			"name":"fqueue",
+			"description":"fqueue is a micro-plugin to queue function execution to handle asyncronous flow and stepping though functions. Avaible both as node module and browser plugin.",
+			"link":"http://github.com/s-yadav/jsonQ"
+		},
+		{
+			"name":"eventPause.js",
+			"description":"eventPause is a simple and light weight plugin, providing a lot of methods to control events. You don’t need to worry about the event handlers assigned for a particular event ,you just can pause and active it whenever you want.",
+			"link":"http://github.com/s-yadav/eventPause.js"
+			},
+		{
+			"name":"coequal",
+			"description":"coequal is a small utility function to have a deep comparision of objects so you can compare two objects like array, function, object literal, date object. It even support comporison jQuery object.",
+			"link":"http://github.com/s-yadav/eventPause.js"
+			}			
+	]
+}

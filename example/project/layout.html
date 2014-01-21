@@ -1,0 +1,18 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>{{title}}</title>
+	<link href="assets/css/base.css"  rel="stylesheet" type="text/css" />
+	<link href="{{pageCss}}"  rel="stylesheet" type="text/css" />
+  </head>
+  <body >
+		<?? layout("header") ??>
+		<div id="bodyContent">
+       		 <?? layout("body") ??>
+        </div>
+		<?? layout("footer") ??>  	
+        <?? include("includes/globalScripts.html")??>
+        <?? layout("pageScripts") ??>
+  </body>
+</html>

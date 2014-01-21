@@ -1,0 +1,14 @@
+/*flexible width*/
+/*flexible height*/
+/*setting font size line height and color together*/
+/****** project page css ********/
+.proj-title {
+  font-size: 18px;
+  line-height: 20px;
+  color: inherit;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.proj-desc {
+  padding-bottom: 20px;
+}

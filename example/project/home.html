@@ -1,0 +1,297 @@
+<div id="contentNav">
+<ul  class="nav nav-tabs">
+  <li><a href="#buildjsLink" >build.js</a></li>
+  <li><a href="#configjsLink" >config.js</a></li>
+  <li><a href="#layoutjsLink" >layout.js</a></li>
+  <li><a href="#fileUtilLink" >fileUtil.js </a></li>
+  <li><a href="#layoutUtilLink" >layoutUtils.js </a></li>
+  <li><a href="#lessUtilLink" >lessUtils.js </a></li>
+  <li><a href="#handlebarLink" >handlebarUtils.js </a></li>
+  <li><a href="#utilLink" >Utils.js </a></li>
+  <li><a href="#htmlFuncLink" >HTML functions </a></li>
+</ul>
+</div>
+<div id="pageContent">
+<p>
+Here I present a build tool script boilerplate created on top of node.js . <br/>
+While working on lot of web projects I had some specific needs like, concatenation, minfication and obfuscation of JS files, reusing html content like header, footer, menu etc which is not possible without any server scripting (as we don't have any include on html). Templating and CSS preprocessing also helps a lot.<br/>
+In most of my projects I as using restful services for communicating with server, so I didn't wanted any server language in my frontend code. There are lot of framework and build tools are available, but either my projects were too small to be on a framework or framework provide too much which I don't need.<br/>
+So I decided to use node.js to fulfill all my needs for small projects and independent frontend projects which must serve following things.
+</p>
+
+<ol>
+	<li>Concatenation of JS files.</li>
+	<li>Minfication and obfuscation of JS files.</li>
+	<li>Includes to have reusable HTML.</li>
+	<li>CSS prepossessing  (with LESS).</li>
+	<li>Templating (With Handlebars).</li>
+	<li>Output file should be independent of build script (Plain HTML, CSS and JS) , which is ready to deploy.</li>
+</ol>
+<p>
+You may like to see about node.js, less, handlebars, as we are using them on our build script. <br/>
+ 
+<a href="http://nodejs.org/api/">http://nodejs.org/api/</a> <br/>
+<a href="http://www.lesscss.org/">http://www.lesscss.org/</a> <br/>
+<a href="http://handlebarsjs.com/">http://handlebarsjs.com/</a> <br/>
+</p>
+
+<p>
+To start using this boilerplate copy whole folder and start changing each files as your need. You can seperate you working and build directory outside. </p>
+<p>After you can go to node project folder through command line and start build process with </p>
+<pre><code>node build</code></pre> 
+  <br/>
+  
+  We will see how we can use this boilerplate to create our build script.</p>
+
+<h3>Files</h3>
+<div id="buildjsLink" class="file-desc-block">
+<h4 >build.js </h4>
+<ul>
+<li>contains all build script utilizing file utilities , less utilities and and less methods.</li>
+<li>all scripts are wrapped inside build function so once node server started it start watching change on working file and do build on any file change on working folder.</li>
+
+</ul>
+</div>
+
+<div id="configjsLink" class="file-desc-block">
+<h4>config.js </h4>
+  <ul>
+    <li>contains configuration variables.</li>
+    <li>Three important configuration parameters are<strong></strong></li>
+    <ul>
+      <li><strong>ENVIRONMENT</strong> : production or development.<strong></strong></li>
+      <li><strong>BUILDPATH : </strong>Path where build (compiled) files  will reside.<strong></strong></li>
+      <li><strong>WORKPATH  : </strong>Path where where raw files resides.<strong></strong></li>
+    </ul>
+  </ul>
+<p class="c-red"><strong>(</strong>** Note BUILDPATH and WORKPATH can be  any path of computer ,but the path must be on UNIX path format ie "E:/work/UI  plugins/BuildTool" <strong>)</strong></p>
+</div>
+
+<div id="layoutjsLink" class="file-desc-block">
+
+<h4>layout.js </h4>
+<ul>
+  <li>contains the base template structures from where  you can extend other templates.<strong></strong></li>
+</ul>
+</div>
+
+<h3>Utilities files</h3>
+
+<div id="fileUtilLink" class="file-desc-block">
+<h4>fileUtil.js </h4>
+
+  <ul>
+    <li>Contains method for file manipulation.<strong></strong></li>
+  </ul>
+<strong>Methods</strong>
+<p class="methods"><strong>concatJs : </strong>to concat js files and add  on destination file<strong></strong></p>
+<p>Example  :</p>
+<pre>
+<code>
+	//Concatinating and minifying all common js files and libraries
+	fileUtils.concatJs({
+		src:[
+			WORKPATH+"assets/js/jquery.js",			
+			WORKPATH+"assets/js/modalBox.js",
+			WORKPATH+"assets/js/contextMenu.js",
+			WORKPATH+"assets/js/base.js"
+		],
+		dest:BUILDPATH+"assets/js/base.js",
+		minify:globalSetting.minify
+	},
+
+	{
+		src:[
+			WORKPATH+"assets/js/home.js",
+		],
+		dest:BUILDPATH+"assets/js/home.js",
+		minify:globalSetting.minify
+	},
+
+	{
+		src:[
+			WORKPATH+"assets/js/projects.js",
+		],
+		dest:BUILDPATH+"assets/js/projects.js",
+		minify:globalSetting.minify
+	});
+
+</code>
+</pre>
+
+<p class="methods"><strong>writeFile  : </strong>write data to a file </p>
+<pre>
+<code>    
+fileUtils.writeFile(BUILDPATH+&quot;test.html&quot;,&quot;&lt;div&gt; A dummy data&lt;/data&gt;&quot;);
+</code>
+</pre>
+<p class="methods"><strong>minifyJs  : </strong>minify a single js file or string and copy on destination path.<strong></strong></p>
+<p>Minifying a js file and putting it  on destination file. </p>
+<pre>
+<code>
+	fileUtils.minifyJs({
+			src : WORKPATH+"assets/js/index.js",
+			dest : BUILDPATH+"assets/js/index.js"
+		});
+
+</code>
+</pre>
+
+<p>Minifying js data and putting it on destination file. </p>
+<pre>
+<code>
+	fileUtils.minifyJs({
+			data : "alert ('123'); var text='something'",
+			dest : BUILDPATH+"assets/js/test.js"
+		});
+</code>
+</pre>
+<p class="methods"><strong>getHtml : </strong>To get html data from a html file. Also allow getting html data compiled  after templating.<strong></strong></p>
+<p>Getting html while applying  templating (templateData is optional  parameter)</p>
+<pre>
+<code>
+    fileUtils.getHtml({
+                src : WORKPATH+"includes/header.html",
+                templateData: {
+                        title : "Home Page"
+                    }
+            });
+
+</code>
+</pre>
+<p class="methods"><strong>getData : </strong>get data of a file</p>
+
+<pre>
+<code>
+    var  template= JSON.parse(fileUtils.getData(WORKPATH+"data/projects.json"));
+</code>
+</pre>
+<p class="methods"><strong>copy : </strong>copy  file from one folder to another folder<strong></strong></p>
+<p>Copy all  files from one folder to other</p>
+<pre>
+<code>
+    fileUtils.copy({
+                srcFolder:WORKPATH+"assets/images",
+                destFolder:BUILDPATH+"assets/images"
+            });
+
+</code>
+</pre>
+<p>Copy a  single file in a folder</p>
+<pre>
+<code>
+	fileUtils.copy({
+			srcFile:WORKPATH+"assets/images/logo.png",
+			destFolder:BUILDPATH+"assets/images"
+		});
+
+</code>
+</pre>
+<p>Copy  multiple files in a folder</p>
+<pre>
+<code>
+    fileUtils.copy({
+                srcFile:[WORKPATH+"assets/images/logo.png", 
+    WORKPATH+"assets/images/image1.png", 
+    WORKPATH+"assets/images/image2.png"],
+                destFolder:BUILDPATH+"assets/images"
+            });
+
+</code>
+</pre>
+</div>
+
+
+<div id="layoutUtilLink" class="file-desc-block">
+<h4>layoutUtils.js </h4>
+  <ul>
+    <li>Contains method for compiling layouts</li>
+  </ul>
+  <p><strong>Methods</strong></p>
+<p class="methods"><strong>Compile : </strong>Compile html taking care of includes, layouts and templates. If you want to  compile multiple layouts multiple object can be passed as parameter.</p>
+To call	
+<pre>
+<code>
+    layoutUtil.compile({
+                layout:{
+                        body:WORKPATH+"home.html",
+                        pageScripts:WORKPATH+"includes/indexScript.html",
+                    },
+                templateData:{
+                    title:"Project Shire"
+                },
+                src :WORKPATH+"layout.html",
+                dest:BUILDPATH+"index.html",
+                extend: "baseLayout"
+            });
+
+</code>
+</pre>
+<p>Whatever  layout definition you are providing which is extended by any default layout  will be used in layout method used in html.<br />
+  For example<br />
+  &lt;?? layout(&quot;body&quot;) ??&gt; will include home.html data at a  point where this function is called.</p>
+<p>**  Included files are also compiled recursively, so you don't have to compile  them.</p>
+</div>
+
+<div id="lessUtilLink" class="file-desc-block">
+<h4>lessUtils.js </h4>
+<ul>
+    <li>Contain method to compile less files<strong></strong></li>
+  </ul>
+<p><strong>Methods</strong></p>
+<p class="methods"><strong>compile</strong> : compiles a LESS file into CSS file .  Multiple object can be passed as parameter.</p>
+<pre>
+<code>
+	//to create css files from less files
+	lessUtils.compile(
+		//compile common less to css
+		{
+			src:WORKPATH+"assets/less/base.less",
+			dest:BUILDPATH+"assets/css/base.css",
+			minify:globalSetting.minify
+		},
+		//compile page specific less to css
+		{
+			src:WORKPATH+"assets/less/home.less",
+			dest:BUILDPATH+"assets/css/home.css",
+			minify:globalSetting.minify
+		});
+
+</code>
+</pre>
+</div>
+
+<div id="handlebarLink" class="file-desc-block">
+<h4>handlebarUtils.js</h4> 
+<ul><li>Contains helper functions for handlebar . </li> </ul>
+</div>
+
+<div id="utilLink" class="file-desc-block">
+<h4>Utils.js</h4>
+<ul><li>
+Contains some common used function .
+</li></ul>
+</div>
+<div id="htmlFuncLink" >
+<h3>HTML functions</h3>
+<h4> include </h4>
+<p>
+include is used to include any html file inside any other html file.
+</p>
+<pre>
+<code>
+	&lt;?? include("includes/header.html") ??&gt;
+</code>
+</pre>
+
+<h4> layout </h4>
+<p>
+layout defines which file to include as per layout defination.
+</p>
+<pre>
+<code>
+	&lt;?? layout("body") ??&gt;
+</code>
+</pre>
+</div>
+</div>

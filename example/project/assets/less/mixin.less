@@ -1,0 +1,40 @@
+/*flexible width*/
+.flex-width(absolute, @leftMarg:0px, @rightMargin:0px){
+  position:absolute;
+  left:@leftMarg;
+  right:@rightMargin;
+}
+
+.flex-width(margin, @leftMarg:0px, @rightMargin:0px){
+  margin-left:@leftMarg;
+  margin-right:@rightMargin;
+}
+
+
+/*flexible height*/
+
+
+.flex-height(@topMarg:0px, @bottomMargin:0px){
+  position:absolute;
+  top:@topMarg;
+  bottom:@bottomMargin;  
+}
+
+.bottom-right(@bottom:0px, @right:0px){
+  position:absolute;
+  bottom:@bottom;
+  right:@right;  
+}
+
+
+/*setting font size line height and color together*/
+
+.setFont(@size:14px, @line-height:@size+2, @color:inherit){
+  font-size:@size;
+  line-height:@line-height;
+  color:@color;
+}
+
+.bold(){
+  font-weight : bold;
+}

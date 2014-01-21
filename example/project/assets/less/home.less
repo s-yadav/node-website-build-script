@@ -1,0 +1,36 @@
+@import "./example/project/assets/less/lesshat.less";
+@import "./example/project/assets/less/variable.less";
+@import "./example/project/assets/less/mixin.less";
+
+//add transition on scroll
+body{
+  .transition(scroll 600ms);
+}
+
+h3{
+  .setFont(24px);
+}
+
+h4{
+  .setFont(18px);
+}
+
+#contentNav{
+  width :150px;
+  position:absolute;
+  z-index:10;
+  background:darken(@light-grey,5);
+  .border-radius(5px);
+   li{
+    float:none;
+  }
+}
+
+#contentNav.fixed{
+  position:fixed;
+  top:80px;
+}
+
+#pageContent{
+  .flex-width(margin, 200px);
+}

@@ -1,0 +1,69 @@
+@import "./example/project/assets/less/lesshat.less";
+@import "./example/project/assets/less/variable.less";
+@import "./example/project/assets/less/mixin.less";
+@import "./example/project/assets/less/lib.less";
+@import "./example/project/assets/less/bootstrap.less";
+
+  
+*{
+  .box-sizing(border-box);
+}
+
+
+
+
+/* modal box css*/
+.modal{
+	border: 5px double @color1;
+  .border-radius(10px);
+  
+  .modal-close{
+		position: absolute;
+		left: 3px;
+		top: 3px;
+	}
+}
+
+.iw-modalOverlay {
+background: @black;
+opacity:.8;
+}
+
+//22-10-2013//
+
+/****** header css *****/ 
+.navbar {
+  border-bottom:2px solid @color1;
+}
+ #header{
+   margin-top:50px;
+   background:@color1;
+   border-bottom:lighten(@color1,20);
+   color:@white;
+   padding:10px 20px;
+ }
+ 
+ #githubLink{
+   width:40px;
+   height:40px;
+   float:right;
+   margin-right:30px;
+   margin-top:5px;
+ }
+
+.page-title{ .setFont(20px);}
+
+//body content css
+#bodyContent{
+  padding:10px;
+  position:relative;
+}
+
+
+//footer.less
+#footer{
+   border-top:2px solid @color1;
+   padding:10px;
+}
+
+

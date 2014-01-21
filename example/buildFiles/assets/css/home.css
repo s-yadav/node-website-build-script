@@ -1,0 +1,43 @@
+/*flexible width*/
+/*flexible height*/
+/*setting font size line height and color together*/
+body {
+  -webkit-transition: scroll 600ms;
+  -moz-transition: scroll 600ms;
+  -o-transition: scroll 600ms;
+  -ms-transition: scroll 600ms;
+  transition: scroll 600ms;
+}
+h3 {
+  font-size: 24px;
+  line-height: 26px;
+  color: inherit;
+}
+h4 {
+  font-size: 18px;
+  line-height: 20px;
+  color: inherit;
+}
+#contentNav {
+  width: 150px;
+  position: absolute;
+  z-index: 10;
+  background: #deeaff;
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+}
+#contentNav li {
+  float: none;
+}
+#contentNav.fixed {
+  position: fixed;
+  top: 80px;
+}
+#pageContent {
+  margin-left: 200px;
+  margin-right: 0px;
+}
