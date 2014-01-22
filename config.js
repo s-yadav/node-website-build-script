@@ -1,6 +1,6 @@
 
 var configs={
-	ENVIRONMENT:"development",
+	ENVIRONMENT:"production",
 	BUILDPATH:"./example/buildFiles/",
 	WORKPATH:"./example/project/"
 }

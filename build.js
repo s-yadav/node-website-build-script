@@ -1,3 +1,10 @@
+/*
+ *Node build script 1.0.0
+ *Author: Sudhanshu Yadav
+ *github.com/s-yadav
+ *Copyright (c) 2014 Sudhanshu Yadav.
+ *Under MIT licenses
+ */
 var http=require("http"),   
 	config=require("./config");
 	fileUtils=require("./utility/fileUtils"),

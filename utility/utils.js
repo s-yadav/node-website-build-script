@@ -1,3 +1,11 @@
+/*
+ *Node build script 1.0.0
+ *Author: Sudhanshu Yadav
+ *github.com/s-yadav
+ *Copyright (c) 2014 Sudhanshu Yadav.
+ *Under MIT licenses
+ */
+
 var utils={
 	//to create array from array type objects
 	objToAry:function(obj,start){
