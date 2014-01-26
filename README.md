@@ -3,7 +3,7 @@ Node-website-build-script
 
 Boilerplate to use node.js as a build script for web projects.
 <br /> <br />
-It includes :
+It provides a basic setup for :
 <ol>
 	<li>Concatenation of JS files.</li>
 	<li>Minfication and obfuscation of JS files.</li>
@@ -13,6 +13,6 @@ It includes :
 	<li>Templating (With Handlebars).</li>
 </ol>
 <br /> <br />
-For complete documentation check out <a href="http://s-yadav.github.io/nodebuildscript/">http://s-yadav.github.io/nodebuildscript</a>
+<h3> See documentation on  <a href="http://s-yadav.github.io/nodebuildscript/">http://s-yadav.github.io/nodebuildscript</a> </h3>
 
 
