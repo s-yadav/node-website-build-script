@@ -13,6 +13,6 @@ It provides a basic setup for :
 	<li>Templating (With Handlebars).</li>
 </ol>
 <br /> <br />
-<h3> See documentation on  <a href="http://s-yadav.github.io/nodebuildscript/">http://s-yadav.github.io/nodebuildscript</a> </h3>
+<strong> See documentation on  <a href="http://ignitersworld.com/lab/nodebuildscript.html">http://ignitersworld.com/lab/nodebuildscript.html</a> </strong>
 
 
