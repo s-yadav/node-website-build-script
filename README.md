@@ -13,6 +13,6 @@ It provides a basic setup for :
 	<li>Templating (With Handlebars).</li>
 </ol>
 <br /> <br />
-<strong> See documentation on  <a href="http://ignitersworld.com/lab/nodebuildscript.html">http://ignitersworld.com/lab/nodebuildscript.html</a> </strong>
+<strong> See documentation on  <a href="http://ignitersworld.com/lab/nodeBuildScript.html">http://ignitersworld.com/lab/nodeBuildScript.html</a> </strong>
 
 
