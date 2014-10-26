@@ -32,18 +32,17 @@ var lessUtils={
 		arg.forEach(function(obj){
 				var optn=utils.mergeObj({},defaultOptn,obj),
 					src=optn.src,
-					parser = new(less.Parser),
 					dest=optn.dest;
 				//read less data 
 				var lessData=fs.readFileSync(src).toString();
 		
-				parser.parse(lessData, function (e, tree) {
-					if(e) console.log('\033[31m '+e+' \033[39m');;
-					var css = tree.toCSS({ compress: obj.minify }); // Minify CSS output
-					 fileUtils.writeFile(dest,css);				
-				})
-				//comple less data
-				less.render(lessData, function (e, css) {
+				//compile less data
+				less.render(lessData,{compress:obj.minify}, function (e, css) {
+					if(e){
+					 	console.log('\033[31m '+JSON.stringify(e)+' \033[39m'); 
+					 	return;
+					}
+					fileUtils.writeFile(dest,css);	
 				});
 			
 			});
